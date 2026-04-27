@@ -9,12 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirm_password = $_POST['confirm_password'] ?? '';
 
     if (empty($name) || empty($email) || empty($password)) {
-        header("Location: ../Register/register.html?error=empty");
+        header("Location: ../Register/register.php?error=empty");
         exit();
     }
 
     if ($password !== $confirm_password) {
-        header("Location: ../Register/register.html?error=pass");
+        header("Location: ../Register/register.php?error=pass");
         exit();
     }
 
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
 
-        header("Location: ../Login/login.html");
+        header("Location: ../Login/login.php");
         exit();
 
     } else {

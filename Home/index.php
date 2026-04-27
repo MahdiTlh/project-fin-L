@@ -1,47 +1,9 @@
-<?php
-session_start();
+<?php 
+$title = "My Document - Report & Search Lost/Found Documents";
+$css = "index.css";
+$active = 'home';
+require '../includes/header.php'; 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Document - Report & Search Lost/Found Documents</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-
-    <header id="header">
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <i class="fa-solid fa-id-card"></i> My Document
-            </a>
-            <nav class="nav-menu" id="nav-menu">
-                <ul>
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="../Search/search.html">Search</a></li>
-                    <li><a href="../Lost/lost.html">Report Lost</a></li>
-                    <li><a href="../Found/found.html">Report Found</a></li>
-                    <li class="user-menu-item">
-                        <a href="../Login/login.html" class="user-profile-btn">
-                            <div class="profile-circle">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-                            <span class="user-label"><?php echo $_SESSION['user_name']; ?></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
-    </header>
 
     <section id="home" class="hero">
         <div class="container">
@@ -52,7 +14,7 @@ session_start();
                         Help items find their way back to their owners.</p>
                     
                     <div class="hero-search-wrapper">
-                        <form class="hero-search-form" action="../Search/search.html" method="get" id="searchForm">
+                        <form class="hero-search-form" action="../Search/search.php" method="get" id="searchForm">
                             <div class="search-type-select">
                                 <select name="type">
                                     <option value="all">All Documents</option>
@@ -70,8 +32,8 @@ session_start();
                     </div>
 
                     <div class="hero-buttons">
-                        <a href="../Lost/lost.html" class="btn btn-primary">Report Lost Document</a>
-                        <a href="../Found/found.html" class="btn btn-secondary">Report Found Document</a>
+                        <a href="../Lost/lost.php" class="btn btn-primary">Report Lost Document</a>
+                        <a href="../Found/found.php" class="btn btn-secondary">Report Found Document</a>
                     </div>
                 </div>
             </div>
@@ -132,49 +94,9 @@ session_start();
                 <!-- Data will be loaded here -->
             </div>
             <div class="text-center mt-4">
-                <a href="../Results/results.html" class="btn btn-outline-dark">View All Documents</a>
+                <a href="../Results/results.php" class="btn btn-outline-dark">View All Documents</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-about">
-                <a href="#" class="logo footer-logo">
-                    <i class="fa-solid fa-id-card"></i> My Document
-                </a>
-                <p>The easiest way to report and search for lost or found personal cards and documents.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="../Search/search.html">Search</a></li>
-                    <li><a href="../Lost/lost.html">Report Lost</a></li>
-                    <li><a href="../Found/found.html">Report Found</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contact Us</h3>
-                <ul>
-                    <li><i class="fa-solid fa-envelope"></i> mahditalhi10@gmail.com</li>
-                    <li><i class="fa-solid fa-phone"></i>0699497706</li>
-                    <li><i class="fa-solid fa-location-dot"></i>sidi amar || annaba</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 My Document. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="../JS/script.js"></script>
-    <script src="../JS/documents.js"></script>
-</body>
-
-</html>
+<?php require '../includes/footer.php'; ?>

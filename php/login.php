@@ -22,13 +22,13 @@ if ($result->num_rows > 0) {
 
     } else {
 
-        header("Location: ../Login/login.html?error=pass");
+        header("Location: ../Login/login.php?error=pass");
         exit();
     }
 }
 
 else {
-    header("Location: ../Login/login.html?error=email");
+    header("Location: ../Login/login.php?error=email");
     exit();
 }
 
