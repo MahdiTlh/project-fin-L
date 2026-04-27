@@ -2,6 +2,21 @@
 $title = "User Profile - My Document";
 $css = "profile.css";
 require '../includes/header.php'; 
+require '../php/config.php';
+
+if (isset($_SESSION['user_id'])) {
+    $id = $_SESSION['user_id'];
+    $sql = "SELECT * FROM users WHERE id = $id";
+    $result = $conn->query($sql);
+    if ($result && $result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+    } else {
+        $user = ['name' => 'Unknown', 'email' => 'Unknown'];
+    }
+} else {
+    echo "<script>window.location.href='../Login/login.php';</script>";
+    exit();
+}
 ?>
 
     <section class="section bg-light page-header">
