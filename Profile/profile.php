@@ -2,21 +2,8 @@
 $title = "User Profile - My Document";
 $css = "profile.css";
 require '../includes/header.php'; 
-require '../php/config.php';
+require '../php/profile.php';
 
-if (isset($_SESSION['user_id'])) {
-    $id = $_SESSION['user_id'];
-    $sql = "SELECT * FROM users WHERE id = $id";
-    $result = $conn->query($sql);
-    if ($result && $result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-    } else {
-        $user = ['name' => 'Unknown', 'email' => 'Unknown'];
-    }
-} else {
-    echo "<script>window.location.href='../Login/login.php';</script>";
-    exit();
-}
 ?>
 
     <section class="section bg-light page-header">
@@ -52,7 +39,41 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                     
                     <div class="latest-docs-grid" id="myReportsContainer">
-                        <!-- Data will be loaded here -->
+                        <?php
+                            if ($report_result && $report_result->num_rows > 0) {
+
+                            while ($row = $report_result->fetch_assoc()) {
+                                ?>
+
+                                <div class="doc-card">
+                                    <h3><?php echo $row['document_type']; ?></h3>
+
+                                    <p><strong>Name:</strong> <?php echo $row['name']; ?></p>
+
+                                    <p><strong>Location:</strong> <?php echo $row['location']; ?></p>
+
+                                    <p><strong>Date:</strong> <?php echo $row['date_event']; ?></p>
+
+                                    <p><strong>Type:</strong> 
+                                        <?php echo ($row['type'] == 'lost') ? 'Lost' : 'Found'; ?>
+                                    </p>
+
+                                    <p><strong>Contact:</strong> <?php echo $row['contact']; ?></p>
+
+                                    <form action="../php/delete_doc.php" method="POST" onsubmit="return confirm('Are you sure?');">
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+
+                                </div>
+
+                                <?php
+                            }
+
+                            } else {
+                                echo "<p>No reports yet.</p>";
+                            }
+                        ?>
                     </div>
 
                 </div>

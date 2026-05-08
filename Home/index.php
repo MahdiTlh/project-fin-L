@@ -3,6 +3,11 @@ $title = "My Document - Report & Search Lost/Found Documents";
 $css = "index.css";
 $active = 'home';
 require '../includes/header.php'; 
+
+require '../php/config.php';
+
+$sql = "SELECT * FROM document ORDER BY created_at DESC LIMIT 6";
+$result = $conn->query($sql);
 ?>
 
     <section id="home" class="hero">
@@ -90,9 +95,39 @@ require '../includes/header.php';
                 <h2>Latest Documents</h2>
                 <p>Recently reported lost and found items in your area</p>
             </div>
-            <div class="latest-docs-grid" id="latestDocsContainer">
-                <!-- Data will be loaded here -->
+            <div class="latest-docs-grid">
+
+                <?php
+                if ($result && $result->num_rows > 0) {
+
+                    while ($row = $result->fetch_assoc()) {
+                        ?>
+
+                        <div class="doc-card">
+
+                            <h3><?php echo $row['document_type']; ?></h3>
+
+                            <p><strong>Name:</strong> <?php echo $row['name']; ?></p>
+
+                            <p><strong>Location:</strong> <?php echo $row['location']; ?></p>
+
+                            <p><strong>Date:</strong> <?php echo $row['date_event']; ?></p>
+
+                            <p><strong>Status:</strong> 
+                                <?php echo ($row['type'] == 'lost') ? 'Lost' : 'Found'; ?>
+                            </p>
+
+                        </div>
+
+                        <?php
+                    }
+
+                } else {
+                    echo "<p>No documents found.</p>";
+                }
+                ?>
             </div>
+            
             <div class="text-center mt-4">
                 <a href="../Results/results.php" class="btn btn-outline-dark">View All Documents</a>
             </div>

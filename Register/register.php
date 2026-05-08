@@ -41,7 +41,7 @@ require '../includes/headerSec.php';
                     <div id="error-message" class="error-message"></div>
                     <button type="submit" class="btn btn-primary btn-block">Register</button>
                     <div class="auth-links">
-                        <p>Already have an account? <a href="../Login/login.html">Login here</a></p>
+                        <p>Already have an account? <a href="../Login/login.php">Login here</a></p>
                     </div>
                 </form>
             </div>

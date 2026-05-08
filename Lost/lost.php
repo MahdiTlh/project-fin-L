@@ -15,7 +15,8 @@ require '../includes/header.php';
     <section class="section form-section">
         <div class="container">
             <div class="form-card">
-                <form action="#" method="POST" id="reportLostForm">
+                <form action="../php/add_document.php" method="POST" id="reportLostForm">
+                    <input type="hidden" name="type" value="lost">
                     <div class="form-row">
                         <div class="form-group flex-1">
                             <label>Document Name (Person's Name)</label>
