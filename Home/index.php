@@ -30,7 +30,7 @@ $result = $conn->query($sql);
                             </div>
                             <div class="search-input-wrapper">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" name="q" placeholder="Enter name, ID, or keywords..." required>
+                                <input type="text" name="q" placeholder="Enter to search" required>
                             </div>
                             <button type="submit" class="hero-search-submit">Search</button>
                         </form>
@@ -103,20 +103,19 @@ $result = $conn->query($sql);
                     while ($row = $result->fetch_assoc()) {
                         ?>
 
-                        <div class="doc-card">
+                        <div class="doc-item">
+                            <div class="doc-badge badge-<?php echo $row['type']; ?>">
+                                <?php echo ucfirst($row['type']); ?>
+                            </div>
+                            
+                            <div class="doc-details">
+                                <h3><?php echo $row['document_type']; ?></h3>
+                                <p><i class="fa-solid fa-user"></i> <strong>Name:</strong> <?php echo $row['name']; ?></p>
+                                <p><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> <?php echo $row['location']; ?></p>
+                                <p><i class="fa-solid fa-calendar-days"></i> <strong>Date:</strong> <?php echo $row['date_event']; ?></p>
+                            </div>
 
-                            <h3><?php echo $row['document_type']; ?></h3>
-
-                            <p><strong>Name:</strong> <?php echo $row['name']; ?></p>
-
-                            <p><strong>Location:</strong> <?php echo $row['location']; ?></p>
-
-                            <p><strong>Date:</strong> <?php echo $row['date_event']; ?></p>
-
-                            <p><strong>Status:</strong> 
-                                <?php echo ($row['type'] == 'lost') ? 'Lost' : 'Found'; ?>
-                            </p>
-
+                            <a href="../Details/details.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-dark btn-sm btn-block">View Details</a>
                         </div>
 
                         <?php

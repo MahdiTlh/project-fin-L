@@ -4,11 +4,27 @@ $css = "login.css";
 require '../includes/headerSec.php';
 ?>
 
+
+<?php $active = 'login'; ?>
+
     <section class="section bg-light auth-section">
         <div class="container">
             <div class="auth-card">
                 <h2>Welcome Back</h2>
                 <p>Log in to manage your documents</p>
+
+                <?php if (!empty($_GET['error'])): ?>
+                    <div class="auth-alert error" style="display: block !important; margin: 30px 0 !important;">
+                        <span style="color: #ff0000 !important; font-weight: 800 !important; text-align: center !important; display: block !important;">
+                            <?php 
+                                if ($_GET['error'] == 'email') echo "Account not found. Please register or check your email.";
+                                elseif ($_GET['error'] == 'pass') echo "Incorrect password. Please try again.";
+                                elseif ($_GET['error'] == 'system') echo "System error. Please contact administrator.";
+                                else echo "An error occurred. Please try again.";
+                            ?>
+                        </span>
+                    </div>
+                <?php endif; ?>
 
                 <form id="loginForm" action="../php/login.php" method="POST">
 

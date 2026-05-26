@@ -12,7 +12,7 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #1e293b;
-    background-color: #ffffff;
+    background-color: #f8fafc;
 }
 
 a {
@@ -25,10 +25,7 @@ ul {
     list-style: none;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 15px;
@@ -57,7 +54,8 @@ p {
     text-align: center;
 }
 
-/* Header */
+
+/* header */
 header {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -150,54 +148,51 @@ header {
     color: #1e293b;
 }
 
-/* Buttons */
 .btn {
-    display: inline-block;
-    padding: 14px 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
     border-radius: 30px;
     font-weight: 600;
     text-align: center;
     cursor: pointer;
     border: 2px solid transparent;
     font-family: 'Inter', sans-serif;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
-.btn-outline {
-    border-color: #3b82f6;
-    color: #3b82f6;
-    background-color: transparent;
-}
-
-.btn-outline:hover {
+.btn-primary {
     background-color: #3b82f6;
     color: #ffffff;
+    border-color: #3b82f6;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
 }
 
 .btn-outline-dark {
-    border-color: #e2e8f0;
-    color: #1e293b;
-    background-color: transparent;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+    background-color: #ffffff;
 }
 
 .btn-outline-dark:hover {
     border-color: #1e293b;
     background-color: #1e293b;
     color: #ffffff;
-    text-decoration: none;
 }
 
 .btn-sm {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 8px 18px;
+    font-size: 0.875rem;
 }
 
-.btn-block {
-    display: block;
-    width: 100%;
-}
-
-/* Page specific */
 .page-header {
     padding-top: 140px;
     padding-bottom: 60px;
@@ -213,94 +208,125 @@ header {
 .page-header p {
     color: #e0e7ff;
     font-size: 1.1rem;
+    margin-bottom: 0;
 }
 
-.results-section {
+.edit-section {
     padding-top: 40px;
+    padding-bottom: 80px;
 }
 
-.results-actions {
+.edit-actions {
     margin-bottom: 30px;
 }
 
-/* Grid identical to Home */
-.latest-docs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.doc-item {
+.edit-card {
     background: #ffffff;
     border-radius: 20px;
-    padding: 30px;
+    padding: 50px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
     border: 1px solid rgba(226, 232, 240, 0.8);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.doc-item:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    transform: translateY(-8px);
-    border-color: #bfdbfe;
+.edit-card-header {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 24px;
+    margin-bottom: 35px;
 }
 
-.doc-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 6px 16px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.badge-found {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-}
-
-.badge-lost {
-    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-}
-
-.doc-details {
-    margin-bottom: 25px;
-    flex-grow: 1;
-}
-
-.doc-details h3 {
-    margin-bottom: 20px;
-    font-size: 1.4rem;
+.edit-card-header h2 {
+    font-size: 1.7rem;
     color: #1e293b;
-    font-weight: 700;
-    padding-right: 60px; /* Space for badge */
-}
-
-.doc-details p {
-    margin-bottom: 12px;
-    font-size: 0.95rem;
+    margin-bottom: 4px;
     display: flex;
     align-items: center;
     gap: 12px;
-    color: #475569;
 }
 
-.doc-details i {
+.edit-card-header h2 i {
     color: #3b82f6;
-    width: 20px;
-    font-size: 1.1rem;
-    opacity: 0.8;
+    font-size: 1.4rem;
 }
 
-/* Footer */
+.edit-card-header p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.edit-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.form-group label i {
+    color: #3b82f6;
+    font-size: 0.85rem;
+    width: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #3b82f6;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.7;
+}
+
+.form-footer {
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 28px;
+    margin-top: 8px;
+}
+
+/* footer */
 footer {
     background-color: #1e293b;
     color: #e2e8f0;
@@ -335,6 +361,7 @@ footer {
     align-items: center;
     border-radius: 50%;
     color: #ffffff;
+    transition: all 0.3s ease;
 }
 
 .social-links a:hover {
@@ -347,6 +374,8 @@ footer {
     color: #ffffff;
     margin-bottom: 25px;
     font-size: 1.2rem;
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 .footer-links ul li,
@@ -384,6 +413,28 @@ footer {
 
     .nav-menu {
         display: none;
+    }
+
+    .edit-card {
+        padding: 30px 20px;
+    }
+
+    .edit-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    .form-footer {
+        grid-column: span 1;
+        flex-direction: column-reverse;
+    }
+
+    .form-footer .btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .footer-container {

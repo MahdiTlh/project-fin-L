@@ -14,6 +14,30 @@ session_start();
     <link rel="stylesheet" href="<?php echo $css ?? ''; ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: block !important;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.3s ease-in-out;
+            }
+            .nav-menu.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            .nav-menu ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>

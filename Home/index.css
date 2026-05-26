@@ -442,69 +442,82 @@ header {
 
 .doc-item {
     background: #ffffff;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    border: 1px solid #e2e8f0;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .doc-item:hover {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-8px);
+    border-color: #bfdbfe;
 }
 
 .doc-badge {
     position: absolute;
-    top: -12px;
+    top: 20px;
     right: 20px;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
     color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .badge-found {
-    background-color: #10b981;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
 }
 
 .badge-lost {
-    background-color: #ef4444;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
 }
 
 .doc-details {
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin-bottom: 25px;
+    flex-grow: 1;
 }
 
-.doc-details h4 {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
+.doc-details h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #1e293b;
+    font-weight: 700;
+    padding-right: 60px; /* Space for badge */
 }
 
 .doc-details p {
-    margin-bottom: 8px;
-    font-size: 0.9rem;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    color: #475569;
 }
 
 .doc-details i {
     color: #3b82f6;
-    width: 15px;
-}
-
-.btn-sm {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    width: 20px;
+    font-size: 1.1rem;
+    opacity: 0.8;
 }
 
 .btn-block {
     display: block;
     width: 100%;
+}
+
+.btn-sm {
+    padding: 10px 20px;
+    font-size: 0.95rem;
 }
 
 .btn-outline-dark {

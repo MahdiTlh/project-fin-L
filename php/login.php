@@ -8,6 +8,11 @@ $password = $_POST['password'];
 $sql = "SELECT * FROM users WHERE email = '$email'";
 $result = $conn->query($sql);
 
+if (!$result) {
+    header("Location: ../Login/login.php?error=system");
+    exit();
+}
+
 if ($result->num_rows > 0) {
 
     $use = $result->fetch_assoc();

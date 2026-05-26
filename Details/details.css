@@ -12,7 +12,7 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #1e293b;
-    background-color: #ffffff;
+    background-color: #f8fafc;
 }
 
 a {
@@ -57,7 +57,7 @@ p {
     text-align: center;
 }
 
-/* Header */
+/* header */
 header {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -150,18 +150,19 @@ header {
     color: #1e293b;
 }
 
-/* Buttons */
 .btn {
-    display: inline-block;
-    padding: 14px 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
     border-radius: 30px;
     font-weight: 600;
     text-align: center;
     cursor: pointer;
     border: 2px solid transparent;
     font-family: 'Inter', sans-serif;
-    font-size: 1.05rem;
-    transition: all 0.3s;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -176,20 +177,17 @@ header {
 }
 
 .btn-outline-dark {
-    border-color: #e2e8f0;
-    color: #1e293b;
-    background-color: transparent;
     border: 1px solid #e2e8f0;
+    color: #475569;
+    background-color: #ffffff;
 }
 
 .btn-outline-dark:hover {
     border-color: #1e293b;
     background-color: #1e293b;
     color: #ffffff;
-    text-decoration: none;
 }
 
-/* Page specific */
 .page-header {
     padding-top: 140px;
     padding-bottom: 60px;
@@ -205,10 +203,12 @@ header {
 .page-header p {
     color: #e0e7ff;
     font-size: 1.1rem;
+    margin-bottom: 0;
 }
 
 .details-section {
     padding-top: 40px;
+    padding-bottom: 80px;
 }
 
 .details-actions {
@@ -217,50 +217,70 @@ header {
 
 .details-card {
     background: #ffffff;
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(226, 232, 240, 0.8);
     position: relative;
     max-width: 900px;
     margin: 0 auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.details-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: #bfdbfe;
 }
 
 .details-badge {
     position: absolute;
-    top: -15px;
+    top: 24px;
     right: 30px;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
     color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 .badge-found {
-    background-color: #10b981;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
 }
 
 .badge-lost {
-    background-color: #ef4444;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
 }
 
 .details-header {
     border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
+    padding-bottom: 24px;
+    margin-bottom: 35px;
 }
 
 .details-header h2 {
     font-size: 2rem;
     color: #1e293b;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    padding-right: 120px; /* Space for the badge */
 }
 
 .reported-time {
-    color: #64748b;
-    font-size: 0.95rem;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+}
+
+.reported-time i {
+    color: #3b82f6;
 }
 
 .details-body {
@@ -271,32 +291,44 @@ header {
 }
 
 .detail-group h3 {
-    font-size: 1.1rem;
-    color: #3b82f6;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #94a3b8;
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 8px;
+    margin-bottom: 8px;
 }
 
-.detail-group p {
+.detail-group h3 i {
+    color: #3b82f6;
+    font-size: 0.9rem;
+    width: 16px;
+    opacity: 0.9;
+}
+
+.detail-group > p {
     font-size: 1.05rem;
     color: #1e293b;
-    padding-left: 28px;
     font-weight: 500;
+    margin-bottom: 0;
+    padding-left: 24px;
 }
 
 .full-width {
     grid-column: span 2;
 }
 
-.full-width p {
-    font-weight: normal;
+.full-width > p {
+    font-weight: 400;
     background-color: #f8fafc;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid #e2e8f0;
-    margin-left: 28px;
+    color: #475569;
+    line-height: 1.8;
 }
 
 .details-footer {
@@ -308,19 +340,30 @@ header {
 }
 
 .contact-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    color: #1e293b;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.contact-info h3 i {
+    color: #3b82f6;
 }
 
 .contact-info p {
     margin-bottom: 0;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.15rem;
+    font-weight: 700;
     color: #3b82f6;
+    padding-left: 24px;
 }
 
-/* Footer */
+/* footer */
 footer {
     background-color: #1e293b;
     color: #e2e8f0;
@@ -355,6 +398,7 @@ footer {
     align-items: center;
     border-radius: 50%;
     color: #ffffff;
+    transition: all 0.3s ease;
 }
 
 .social-links a:hover {
@@ -367,6 +411,8 @@ footer {
     color: #ffffff;
     margin-bottom: 25px;
     font-size: 1.2rem;
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 .footer-links ul li,
@@ -406,9 +452,8 @@ footer {
         display: none;
     }
 
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .details-card {
+        padding: 30px 20px;
     }
 
     .details-body {
@@ -419,9 +464,25 @@ footer {
         grid-column: span 1;
     }
 
+    .details-header h2 {
+        font-size: 1.5rem;
+        padding-right: 0;
+        padding-top: 40px; /* badge space on mobile */
+    }
+
     .details-footer {
         flex-direction: column;
         gap: 20px;
         align-items: flex-start;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .details-badge {
+        top: 20px;
+        right: 20px;
     }
 }

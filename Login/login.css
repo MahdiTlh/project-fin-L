@@ -298,6 +298,37 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Auth Alert */
+.auth-alert {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+/* Auth Alert */
+.auth-alert.error {
+    background-color: transparent !important;
+    border: none !important;
+    margin: 30px 0 20px 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.auth-alert.error span {
+    color: #ff0000 !important; /* Pure red for absolute visibility */
+    font-weight: 800 !important;
+    font-size: 1.05rem !important;
+    display: block !important;
+    text-align: center !important;
+    line-height: 1.4 !important;
+}
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;

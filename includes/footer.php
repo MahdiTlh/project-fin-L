@@ -30,10 +30,11 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 My Document. All rights reserved.</p>
+            <p>© 2026 My Document. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="../js/register.js"></script>
 </body>
 
 </html>

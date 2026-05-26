@@ -34,7 +34,6 @@ $result = $conn->query($sql);
     <section class="section bg-light page-header">
         <div class="container text-center">
             <h1>Search Results</h1>
-            <p id="resultsCount">Searching...</p>
         </div>
     </section>
 
@@ -53,15 +52,19 @@ $result = $conn->query($sql);
                     while ($row = $result->fetch_assoc()) {
                         ?>
 
-                        <div class="doc-card">
-                            <h3><?php echo $row['document_type']; ?></h3>
+                        <div class="doc-item">
+                            <div class="doc-badge badge-<?php echo $row['type']; ?>">
+                                <?php echo ucfirst($row['type']); ?>
+                            </div>
+                            
+                            <div class="doc-details">
+                                <h3><?php echo $row['document_type']; ?></h3>
+                                <p><i class="fa-solid fa-user"></i> <strong>Name:</strong> <?php echo $row['name']; ?></p>
+                                <p><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> <?php echo $row['location']; ?></p>
+                                <p><i class="fa-solid fa-calendar-days"></i> <strong>Date:</strong> <?php echo $row['date_event']; ?></p>
+                            </div>
 
-                            <p><strong>Name:</strong> <?php echo $row['name']; ?></p>
-                            <p><strong>Location:</strong> <?php echo $row['location']; ?></p>
-
-                            <p><strong>Status:</strong>
-                                <?php echo ($row['type'] == 'lost') ? 'Lost' : 'Found'; ?>
-                            </p>
+                            <a href="../Details/details.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-dark btn-sm btn-block">View Details</a>
                         </div>
 
                         <?php
