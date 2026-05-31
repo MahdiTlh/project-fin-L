@@ -15,7 +15,7 @@ $result = $conn->query($sql);
             <div class="hero-container">
                 <div class="hero-content">
                     <h1>Lost or found a document?</h1>
-                    <p>Easily report or search for lost personal cards and documents in just a few clicks.
+                    <p>Easily report or search for lost personal cards in just a few clicks.
                         Help items find their way back to their owners.</p>
                     
                     <div class="hero-search-wrapper">

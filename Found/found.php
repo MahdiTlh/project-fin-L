@@ -9,7 +9,7 @@ require '../includes/header.php';
     <section class="section bg-light page-header">
         <div class="container text-center">
             <h1>Report a Found Document</h1>
-            <p>Help someone recover their lost belongings</p>
+            <p>Provide information to help someone recover their lost card</p>
         </div>
     </section>
 

@@ -8,7 +8,7 @@ require '../includes/header.php';
     <section class="section bg-light page-header">
         <div class="container text-center">
             <h1>Report a Lost Document</h1>
-            <p>Provide details to help others find your lost document</p>
+            <p>Provide details to help others find your lost card</p>
         </div>
     </section>
 
